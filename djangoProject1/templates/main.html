@@ -1,200 +1,254 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
-.myLink {display: none}
-</style>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Raleway", Arial, Helvetica, sans-serif
+        }
+
+        .myLink {
+            display: none
+        }
+    </style>
 </head>
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
-  <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Logo</b></a>
-  <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i
+            class="fa fa-map-marker w3-margin-right"></i>Locailable</b></a>
+    <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
 </div>
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
-  <img class="w3-image" src="/w3images/london2.jpg" alt="London" width="1500" height="700">
-  <div class="w3-display-middle" style="width:65%">
-    <div class="w3-bar w3-black">
-      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'cafe');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'restaurants');"><i class="fa fa-bed w3-margin-right"></i>Hotel</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'coffeeshops');"><i class="fa fa-car w3-margin-right"></i>Rental</button>
-    </div>
-
-    <!-- Tabs -->
-    <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
-      <h3>Travel the world with us</h3>
-      <div class="w3-row-padding" style="margin:0 -16px;">
-        <div class="w3-half">
-          <label>From</label>
-          <input class="w3-input w3-border" type="text" placeholder="Search">
+    <img class="w3-image" src="/w3images/london2.jpg" alt="Tabs" width="1500" height="700">
+    <div class="w3-display-middle" style="width:65%">
+        <div class="w3-bar w3-black">
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'cafe');"><i
+                    class="fa fa-plane w3-margin-right"></i>find
+            </button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'restaurants');"><i
+                    class="fa fa-bed w3-margin-right"></i>best
+            </button>
+            <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'coffeeshops');"><i
+                    class="fa fa-car w3-margin-right"></i>location
+            </button>
         </div>
-        <div class="w3-half">
-          <label>To</label>
-          <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+
+        <!-- Tabs -->
+        <div id="Cafe" class="w3-container w3-white w3-padding-16 myLink">
+            <h3>s</h3>
+            <div class="w3-row-padding" style="margin:0 -16px;">
+                <div class="w3-half">
+                    <label>a</label>
+                    <input class="w3-input w3-border" type="text" placeholder="Search">
+                </div>
+                <div class="w3-half">
+                    <label>b</label>
+                    <input class="w3-input w3-border" type="text" placeholder=" at">
+                </div>
+            </div>
+            <p>
+                <button class="w3-button w3-dark-grey">Search and find</button>
+            </p>
         </div>
-      </div>
-      <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
-    </div>
 
-    <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">
-      <h3>Find the best cafes</h3>
-      <p>Book a reservation with us and get the best discounts and promotions.</p>
-      <p>We have taste - we know comfort.</p>
-      <p><button class="w3-button w3-dark-grey">Search Cafes</button></p>
-    </div>
 
-    <div id="CoffeeShops" class="w3-container w3-white w3-padding-16 myLink">
-      <h3>Best car rental in the world!</h3>
-      <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
-      <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
+        <div id="d" class="w3-container w3-white w3-padding-16 myLink">
+            <h3>Find the best cafes</h3>
+            <p>s.</p>
+            <p>We have taste - we know comfort.</p>
+            <p>
+                <button class="w3-button w3-dark-grey">Search Cafes</button>
+            </p>
+        </div>
+
+        <div id="CoffeeShops" class="w3-container w3-white w3-padding-16 myLink">
+            <h3>Find best coffees in the world!</h3>
+            <p><span class="w3-tag w3-deep-orange"></span> z</p>
+            <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
+            <p>
+                <button class="w3-button w3-dark-grey">Search Availability</button>
+            </p>
+        </div>
     </div>
-  </div>
 </header>
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px;">
 
-  <!-- Good offers -->
-  <div class="w3-container w3-margin-top">
-    <h3>Good tastes around you</h3>
-    <h6>Up to <strong>50%</strong> discount.</h6>
-  </div>
-  <div class="w3-row-padding w3-text-white w3-large">
-    <div class="w3-half w3-margin-bottom">
-      <div class="w3-display-container">
-        <img src="/w3images/cinqueterre.jpg" alt="Cafe Kirpi" style="width:100%">
-        <span class="w3-display-bottomleft w3-padding">Cinque Terre</span>
-      </div>
+    <!-- Good offers -->
+    <div class="w3-container w3-margin-top">
+        <h3>Good tastes around you</h3>
+        <h6>Up to <strong>50%</strong> .</h6>
     </div>
-    <div class="w3-half">
-      <div class="w3-row-padding" style="margin:0 -16px">
+    <div class="w3-row-padding w3-text-white w3-large">
         <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/newyork2.jpg" alt="Midpoint" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">New York</span>
-          </div>
+            <div class="w3-display-container">
+                <img src="C://Users/Eduman/Desktop/pictures/chamomilecafef-45.jpg" alt="Cafe Kirpi" style="width:100%">
+                <span class="w3-display-bottomleft w3-padding">1</span>
+            </div>
+        </div>
+        <div class="w3-half">
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <img src="C://Users/Eduman/Desktop/pictures/download.jpg" alt="Midpoint" style="width:100%">
+                        <span class="w3-display-bottomleft w3-padding">2</span>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <img src="/w3images/sanfran.jpg" alt="Starbucks" style="width:100%">
+                        <span class="w3-display-bottomleft w3-padding">3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <img src="/w3images/pisa.jpg" alt="Mado" style="width:100%">
+                        <span class="w3-display-bottomleft w3-padding">4</span>
+                    </div>
+                </div>
+                <div class="w3-half w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <img src="/w3images/paris.jpg" alt="Kahve Dunyasi" style="width:100%">
+                        <span class="w3-display-bottomleft w3-padding">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="img1.jpg" style="width:100%">
+            <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="img2.jpg" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="img3.jpg" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <!-- Explore Nature -->
+    <div class="w3-container">
+        <h3>Explore </h3>
+        <p>.</p>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-half w3-margin-bottom">
+            <img src="/w3images/ocean2.jpg" alt="Cafe Alfredo" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Istanbul</h3>
+                <p class="w3-opacity">R</p>
+                <p>.</p>
+                <button class="w3-button w3-margin-bottom">s</button>
+            </div>
         </div>
         <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/sanfran.jpg" alt="Starbucks" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">San Francisco</span>
-          </div>
+            <img src="/w3images/mountains2.jpg" alt="Sweet Cake" style="width:100%">
+            <div class="w3-container w3-white">
+                <h3>Bebek</h3>
+                <p class="w3-opacity">-</p>
+                <p>.</p>
+                <button class="w3-button w3-margin-bottom">Find desk</button>
+            </div>
         </div>
-      </div>
-      <div class="w3-row-padding" style="margin:0 -16px">
-        <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/pisa.jpg" alt="Mado" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">Pisa</span>
-          </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="w3-container">
+        <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+            <h2>s</h2>
+            <p>.</p>
+            <label>E-mail</label>
+            <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+            <button type="button" class="w3-button w3-red w3-margin-top">e</button>
         </div>
-        <div class="w3-half w3-margin-bottom">
-          <div class="w3-display-container">
-            <img src="/w3images/paris.jpg" alt="Kahve Dunyasi" style="width:100%">
-            <span class="w3-display-bottomleft w3-padding">Paris</span>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Explore Nature -->
-  <div class="w3-container">
-    <h3>Explore Nature</h3>
-    <p>Travel with us and see nature at its finest.</p>
-  </div>
-  <div class="w3-row-padding">
-    <div class="w3-half w3-margin-bottom">
-      <img src="/w3images/ocean2.jpg" alt="Cafe Alfredo" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>West Coast, Norway</h3>
-        <p class="w3-opacity">Roundtrip from $79</p>
-        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-        <button class="w3-button w3-margin-bottom">Buy Tickets</button>
-      </div>
+    <!-- Contact -->
+    <div class="w3-container">
+        <h2>Contact</h2>
+        <p>!</p>
+        <i class="fa fa-map-marker" style="width:30px"></i> Istanbul, TR<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+        <form action="/action_page.php" target="_blank">
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email">
+            </p>
+            <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required
+                      name="Message"></p>
+            <p>
+                <button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button>
+            </p>
+        </form>
     </div>
-    <div class="w3-half w3-margin-bottom">
-      <img src="/w3images/mountains2.jpg" alt="Sweet Cake" style="width:100%">
-      <div class="w3-container w3-white">
-        <h3>Mountains, Austria</h3>
-        <p class="w3-opacity">One-way from $39</p>
-        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-        <button class="w3-button w3-margin-bottom">Buy Tickets</button>
-      </div>
-    </div>
-  </div>
 
-  <!-- Newsletter -->
-  <div class="w3-container">
-    <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
-      <h2>Get the best offers first!</h2>
-      <p>Join our newsletter.</p>
-      <label>E-mail</label>
-      <input class="w3-input w3-border" type="text" placeholder="Your Email address">
-      <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <div class="w3-container">
-    <h2>Contact</h2>
-    <p>Let us book your next trip!</p>
-    <i class="fa fa-map-marker" style="width:30px"></i> Istanbul, TR<br>
-    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
-    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
-    </form>
-  </div>
-
-<!-- End page content -->
+    <!-- End page content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
-  <h5>Find Us On</h5>
-  <div class="w3-xlarge w3-padding-16">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    <h5>To be continued</h5>
+    <div class="w3-xlarge w3-padding-16">
+
+    </div>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a>
+    </p>
 </footer>
 
 <script>
-// Tabs
-function openLink(evt, linkName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("myLink");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-  document.getElementById(linkName).style.display = "block";
-  evt.currentTarget.className += " w3-red";
-}
+    // Tabs
+    function openLink(evt, linkName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("myLink");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(linkName).style.display = "block";
+        evt.currentTarget.className += " w3-red";
+    }
 
-// Click on the first tablink on load
-document.getElementsByClassName("tablink")[0].click();
+    // Click on the first tablink on load
+    document.getElementsByClassName("tablink")[0].click();
 </script>
 
 </body>
