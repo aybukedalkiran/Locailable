@@ -23,6 +23,5 @@ from djangoProject1.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('cafes/', include('cafes.urls')),
-    path('restaurants', include('restaurants.urls'))
+    path('cafes/', include('cafes.urls'))
 ]

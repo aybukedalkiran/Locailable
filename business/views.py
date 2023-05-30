@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from cafes.models import Business
+from cafes.models import Business, Cafe
 
-
-
-def cafes_view(request):
-    business = Business.objects.filter(cafe)
+"""def cafes_view(request):
+    business = Business.objects.filter(emai)
     return render(request, "rest_template.html")
 
 
@@ -34,6 +32,7 @@ def login(request):
         email = request.POST['email']
         password = request.POST['lastname']
 
-    business = Business.objects.filter(email_exact=email)
+    business = Business.objects.filter(email=email)
 
     return render(request, "business_cafe.html", {'cafe' :Business.cafe})
+"""

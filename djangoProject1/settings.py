@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djangoProject1',
     'cafes',
-    'restaurants'
+    'business'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +47,7 @@ ROOT_URLCONF = 'djangoProject1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates', 'djangoProject1/templates', 'cafes/templates', 'restaurants/templates']
+        'DIRS': [BASE_DIR / 'templates', 'djangoProject1/templates', 'cafes/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

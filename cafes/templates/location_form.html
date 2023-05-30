@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% block content %}
+    <h4>Where would you like to hang out?</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Save</button>
+    </form>
+
+{% endblock %}
