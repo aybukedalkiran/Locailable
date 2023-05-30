@@ -1,6 +1,7 @@
-from cafes.views import cafes_view
+from cafes.views import cafes_view, login
 from django.urls import path
 
 urlpatterns = [
-    path('', cafes_view)
+    path('', get_login_form),
+    path('login', login)
 ]
