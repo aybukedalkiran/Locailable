@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cafe Listesi</title>
+  <title>LOCAILABLE</title>
     <style>
         * {
   box-sizing: border-box;
@@ -14,37 +14,52 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
+  color: #000000;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  background-color: #333;
+  background-color: #3a243b;
   color: #fff;
-  padding: 20px;
+  align-items: center;
+  padding: 30px;
 }
 
 h1 {
   margin: 0;
 }
 
-.search-bar {
-  margin-top: 10px;
+.navbar {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-bar {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  margin: 10px;
 }
 
 .search-bar input[type="text"] {
-  flex: 1;
-  padding: 5px;
-  border: none;
-  border-radius: 3px 0 0 3px;
+  flex: 0 1 40%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #3a243b;
+  border-radius: 5px;
 }
 
 .search-bar button {
-  padding: 5px 10px;
+  padding: 10px 20px;
   background-color: #4CAF50;
   color: #fff;
   border: none;
-  border-radius: 0 3px 3px 0;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 main {
@@ -73,7 +88,7 @@ main {
 }
 
 footer {
-  background-color: #333;
+  background-color: #3a243b;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -81,23 +96,30 @@ footer {
 
 .login-button {
   padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
+  background-color: #fff;
+  color: #3a243b;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  top: 30px;
+  right: 30px;
 }
-
     </style>
 </head>
 
 {% block content %}
 <body>
   <header>
-    <h1>Cafe Listesi</h1>
-    <div class="search-bar">
-      <input type="text" placeholder="Cafe ara...">
-      <button type="submit">Ara</button>
+    <div class="navbar">
+        <div class="logo">
+            <h1>LOCAILABLE</h1>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Cafe ara...">
+          <button type="submit">Ara</button>
+        </div>
+        <button class="login-button">Giriş Yap</button>
     </div>
   </header>
 
@@ -117,7 +139,7 @@ footer {
   </main>
 {% endblock %}
   <footer>
-    <button class="login-button">Giriş Yap</button>
+
   </footer>
 </body>
 </html>
