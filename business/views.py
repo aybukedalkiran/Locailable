@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from cafes.models import Business, Cafe
+from .models import Business
+
+def business_detail(request, business_id):
+    business = get_object_or_404(Business, business_id=business_id)
+    return render(request, 'businesses/business_detail.html', {'business': business})
+
 
 """def cafes_view(request):
     business = Business.objects.filter(emai)

@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangoProject1',
-    'cafes',
+    'reviews',
+    'users',
     'business'
 ]
 
@@ -47,8 +48,7 @@ ROOT_URLCONF = 'djangoProject1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates', 'djangoProject1/templates', 'cafes/templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates', 'djangoProject1/templates', 'reviews/templates', 'business/templates', 'users/templates' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -60,6 +60,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'djangoProject1.wsgi.application'
 

@@ -1,7 +1,9 @@
-from cafes.views import cafes_view, login
 from django.urls import path
+from .views import business_detail
+
+app_name = 'businesses'
 
 urlpatterns = [
-    path('', get_login_form),
-    path('login', login)
+    path('business/<int:business_id>/', business_detail, name='business_detail'),
+    # Add more paths as needed
 ]
