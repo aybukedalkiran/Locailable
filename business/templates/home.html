@@ -1,0 +1,18 @@
+<!-- business/templates/business/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome!</h2>
+
+  {% if business %}
+    <ul>
+      {% for business in business %}
+        <li>
+          {{ business.cafe_name }} - Rating: {{ business.rating }} - Available Tables: {{ business.available_tables }} - District: {{ business.district }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No places found.</p>
+  {% endif %}
+{% endblock %}

@@ -20,10 +20,10 @@ from djangoProject1.views import index
 
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('users/', include('users.urls')),
     path('businesses/', include('business.urls')),
-    path('reviews/', include('reviews.urls')),
-    ]# Add more paths as needed
+    path('reviews/', include('reviews.urls'))]

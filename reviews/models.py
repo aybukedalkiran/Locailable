@@ -19,14 +19,7 @@ class Reservation(models.Model):
     group_size = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
-class Availability(models.Model):
-    availability_id = models.AutoField(primary_key=True)
-    business = models.ForeignKey(Business, on_delete=models.CASCADE)
-    available_tables = models.PositiveIntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.business.business_name} capacity: {self.available_tables}"
 
 class VisitedPlaces(models.Model):
     visit_id = models.AutoField(primary_key=True)

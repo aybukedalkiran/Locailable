@@ -4,137 +4,142 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOCAILABLE</title>
-    <style>
-        * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  background-color: #3a243b;
-  color: #fff;
-  align-items: center;
-  padding: 30px;
-}
+    header {
+      background-color: #3a243b;
+      color: #fff;
+      align-items: center;
+      padding: 30px;
+    }
 
-h1 {
-  margin: 0;
-}
+    h1 {
+      margin: 0;
+    }
 
-.navbar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+    .navbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
 
-.search-bar {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  margin: 10px;
-}
+    .search-bar {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      margin: 10px;
+    }
 
-.search-bar input[type="text"] {
-  flex: 0 1 40%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #3a243b;
-  border-radius: 5px;
-}
+    .search-bar input[type="text"] {
+      flex: 0 1 40%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #3a243b;
+      border-radius: 5px;
+    }
 
-.search-bar button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-main {
-  padding: 20px;
-}
+    main {
+      padding: 20px;
+    }
 
-.cafe-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+    .cafe-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
-.cafe-list li {
-  background-color: #fff;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
+    .cafe-list li {
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
 
-.cafe-list li img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
+    .cafe-list li img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
 
-footer {
-  background-color: #3a243b;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
+    footer {
+      background-color: #3a243b;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-.login-button {
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #3a243b;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  top: 30px;
-  right: 30px;
-}
-    </style>
+    .login-button {
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #3a243b;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      top: 30px;
+      right: 30px;
+    }
+  </style>
 </head>
 
 {% block content %}
 <body>
   <header>
     <div class="navbar">
-        <div class="logo">
-            <h1>LOCAILABLE</h1>
-        </div>
-        <div class="search-bar">
-          <input type="text" placeholder="Cafe ara...">
-          <button type="submit">Ara</button>
-        </div>
-        <button class="login-button">Giriş Yap</button>
+      <div class="logo">
+        <h1>LOCAILABLE</h1>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Cafe ara...">
+        <button type="submit">Ara</button>
+      </div>
+      <button class="login-button">Giriş Yap</button>
     </div>
   </header>
 
   <main>
     <ul class="cafe-list">
-
         {% for b in business %}
-            <li>
-            <img src="../../static/{{ b.image }}" alt="Cafe 1">
-            <h2> {{ b.name }}</h2>
-            <p> District: {{ b.district }}</p>
-            <p> Capacity: {{ b.capacity }}</p>
-            <p> Availability: {{ b.available_capacity }}</p>
-            </li>
-        {% endfor %}
+        <li>
+        <img src="../../static/{{ b.image }}" alt="{{ b.business_name }}">
+        <h2>{{ b.name }}</h2>
+        <p>District: {{ b.address }}</p>
+        <p>Capacity: {{ b.capacity }}</p>
+        <p>Availability: {{ b.available_tables }}</p>
+            {% endfor %}
+        <p>Available Tables:
+          {% for availability in availabilities %}
+          {% if availability.business == business %}
+          {{ availability.available_tables }}
+          {% endif %}
+        </li>
+      {% endfor %}
     </ul>
   </main>
 {% endblock %}
