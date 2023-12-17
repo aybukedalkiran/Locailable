@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Business
-from .forms import SearchForm
+from .forms import BusinessSearchForm
 def business_detail(request, business_id):
     business = get_object_or_404(Business, business_id=business_id)
     return render(request, 'businesses/business_detail.html', {'business': business})
@@ -13,22 +13,26 @@ def home(request):
     }
 
     return render(request, 'business/home.html', context)
-def place_search(request):
-    cafes = Business.objects.all()
-    query = request.GET.get('query')
 
-    if query:
-        cafes = cafes.filter(cafe_name__icontains=query) | cafes.filter(district__icontains=query)
+def business_search(request):
+    businesses = Business.objects.all()
+    form = BusinessSearchForm(request.GET)
+    error_message = ''
 
-    form = SearchForm(initial={'query': query})
+    if form.is_valid():
+        business_name_query = form.cleaned_data.get('business_name')
+        address_query = form.cleaned_data.get('address')
 
-    context = {
-        'cafes': cafes,
-        'form': form,
-    }
+        if business_name_query:
+            businesses = businesses.filter(business_name__icontains=business_name_query)
+        if address_query:
+            businesses = businesses.filter(address__icontains=address_query)
 
-    return render(request, 'business/place_search.html', context)
+        if not businesses.exists():
+            error_message = 'Business not found.'
 
+    context = {'businesses': businesses, 'form': form, 'error_message': error_message}
+    return render(request, 'business_search.html', context)
 
 """def cafes_view(request):
     business = Business.objects.filter(emai)

@@ -1,5 +1,6 @@
 # business/forms.py
 from django import forms
 
-class SearchForm(forms.Form):
-    query = forms.CharField(label='Search', max_length=100, required=False)
+class BusinessSearchForm(forms.Form):
+    business_name = forms.CharField(required=False, max_length=255, label='Business Name')
+    address = forms.CharField(required=False, max_length=255, label='Address')

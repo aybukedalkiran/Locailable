@@ -116,8 +116,10 @@
         <h1>LOCAILABLE</h1>
       </div>
       <div class="search-bar">
-        <input type="text" placeholder="Cafe ara...">
-        <button type="submit">Ara</button>
+        <form method="get" action="{% url 'business_search' %}">
+            <input type="text" name="business_name" placeholder="Cafe ara...">
+            <button type="submit">Ara</button>
+        </form>
       </div>
       <button class="login-button">Giriş Yap</button>
     </div>
@@ -125,21 +127,22 @@
 
   <main>
     <ul class="cafe-list">
-        {% for b in business %}
-        <li>
-        <img src="../../static/{{ b.image }}" alt="{{ b.business_name }}">
-        <h2>{{ b.name }}</h2>
-        <p>District: {{ b.address }}</p>
-        <p>Capacity: {{ b.capacity }}</p>
-        <p>Availability: {{ b.available_tables }}</p>
-            {% endfor %}
-        <p>Available Tables:
-          {% for availability in availabilities %}
-          {% if availability.business == business %}
-          {{ availability.available_tables }}
-          {% endif %}
-        </li>
+  {% for b in business %}
+    <li>
+      <img src="../../static/{{ b.image }}" alt="{{ b.business_name }}">
+      <h2>{{ b.business_name }}</h2>
+      <p>District: {{ b.address }}</p>
+      <p>Capacity: {{ b.capacity }}</p>
+
+      <p>Available Tables:</p>
+      {% for a in availability %}
+        {% if a.business == b.business_id %}
+          <p>{{ a.available_tables }}</p>
+        {% endif %}
       {% endfor %}
+    </li>
+  {% endfor %}
+</ul>
     </ul>
   </main>
 {% endblock %}

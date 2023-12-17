@@ -1,0 +1,20 @@
+<!-- business_search.html -->
+<form method="get" action="{% url 'business_search' %}">
+  {{ form.as_p }}
+  <button type="submit">Search</button>
+</form>
+
+{% if error_message %}
+  <p>{{ error_message }}</p>
+{% else %}
+  <ul>
+    {% for business in businesses %}
+      <li>
+        <h2>{{ business.business_name }}</h2>
+        <p>Address: {{ business.address }}</p>
+        <p>Category: {{ business.category }}</p>
+        <!-- Add other fields as needed -->
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
