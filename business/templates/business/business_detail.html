@@ -1,0 +1,11 @@
+<!-- business/templates/business/business_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ business.name }}</h1>
+  <p>{{ business.description }}</p>
+  <h2>Reviews</h2>
+  {% for review in reviews %}
+    <p>{{ review.comment }}</p>
+  {% endfor %}
+{% endblock %}

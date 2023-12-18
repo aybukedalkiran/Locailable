@@ -1,0 +1,9 @@
+<!-- business/templates/business/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Businesses</h1>
+  {% for cafe in cafes %}
+    <p>{{ cafe.name }}</p>
+  {% endfor %}
+{% endblock %}
