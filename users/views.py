@@ -59,12 +59,10 @@ def registerUser(request):
             return redirect('edit_account')
 
         else:
-            messages.success(request, 'An error has occurred during registration')
+            messages.error(request, 'An error has occurred during registration')
 
     context = {'page': page, 'form': form}
-    return render(request, 'users/login_register.html', context)
-
-
+    return render(request, 'users/register.html', context)
 def userProfile(request, owner_id):
     business_owner = BusinessOwner.objects.get(owner_id=owner_id)
     context = {'business_owner': business_owner}
