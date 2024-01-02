@@ -8,7 +8,7 @@ from users.models import Profile
 
 class Business(models.Model):
     owner = models.ForeignKey(
-        'BusinessOwner', related_name='businesses', null=True, blank=True, on_delete=models.CASCADE)
+        'BusinessOwner', related_name='businesses', blank=True, on_delete=models.CASCADE)
     business_name = models.CharField(max_length=250)
     address = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(
