@@ -38,10 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "business",
-    "users"
-    #'business.apps.BusinessConfig',
-    #'users.apps.UsersConfig',
+
+    'business.apps.BusinessConfig',
+    'users.apps.UsersConfig',
 
     #'rest_framework',
     #'corsheaders',
