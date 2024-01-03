@@ -1,6 +1,7 @@
 h3>Availability</h3>
 {% if availability %}
     <p>Available Tables: {{ availability.available_tables }}</p>
+    <a href="{% url 'check_in_out' business.id %}">Check In/Out</a>
     <!-- Add other availability information here -->
 {% else %}
     <p>No availability information available.</p>

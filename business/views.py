@@ -155,6 +155,12 @@ def search_results(request, search_query):
     )
 
     return render(request, 'search_results.html', {'search_query': search_query, 'results': results})
+
+
+def check_in_out(request, business_id):
+    return render(request, 'business/check_in_out.html', {'business_id': business_id})
+
+
 """
 def home(request):
     business = Business.objects.all()
