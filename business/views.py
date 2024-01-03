@@ -107,7 +107,8 @@ def create_review(request, business_id):
 
     return render(request, 'business/create_review.html', {'form': form, 'business': business})
 
-
+def check_in_out(request, business_id):
+    return render(request, 'business/check_in_out.html', {'business_id': business_id})
 
 #def create_business_owner(request):
 #    if request.method == 'POST':

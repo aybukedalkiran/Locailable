@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<button id="check-in">Check In</button>
+<button id="check-out">Check Out</button>
+
+
+<script>
+const ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
+const ws_path = `${ws_scheme}://${window.location.host}/ws/check_in_out/${business_id}/`;
+const socket = new WebSocket(ws_path);
+
+socket.onmessage = function(e) {
+    const data = JSON.parse(e.data);
+    console.log(data);
+    // Update your UI with the received availability data
+};
+
+document.getElementById('check-in').addEventListener('click', function() {
+    socket.send(JSON.stringify({'action': 'check_in', 'business_id': business_id}));
+});
+
+document.getElementById('check-out').addEventListener('click', function() {
+    socket.send(JSON.stringify({'action': 'check_out', 'business_id': business_id}));
+});
+</script>
+
+{% endblock %}

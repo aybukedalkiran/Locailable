@@ -40,10 +40,22 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'business.apps.BusinessConfig',
     'users.apps.UsersConfig',
+    'channels.apps.ChannelsConfig',
     #'rest_framework',
     #'corsheaders',
     #'storages'
 ]
+
+
+# Use channels layer as the default backend for Django.
+ASGI_APPLICATION = 'locailable.routing.application'
+
+# Enable Django Channels layer for handling WebSocket connections.
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 #REST_FRAMEWORK = {
 #    'DEFAULT_AUTHENTICATION_CLASSES': (
