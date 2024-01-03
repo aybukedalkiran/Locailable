@@ -11,4 +11,6 @@ urlpatterns = [
     path('<uuid:business_id>/', views.business_detail, name='business_detail'),
     path('create_availability/<uuid:business_id>/', views.create_availability, name='create_availability'),
     path('create_review/<uuid:business_id>/', views.create_review, name='create_review'),
+    path('search/', views.searchBusiness, name='search_business'),
+    path('search-results/', views.search_results, name='search_results')
 ]

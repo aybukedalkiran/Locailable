@@ -54,7 +54,7 @@
             </div>
             <!-- Search Engine -->
             <div class="search-container w3-hide-small">
-                <form action="/search" method="GET">
+                <form action="{% url 'search_business' %}" method="GET">
                     <input type="text" placeholder="Search..." name="q">
                     <button type="submit">Search</button>
                 </form>
@@ -168,23 +168,6 @@
             <p>Who We Are</p>
             <p>Contact Us</p>
         </div>
-
-        <div class="w3-third">
-            <h3>BLOG POSTS</h3>
-            <ul class="w3-ul w3-hoverable">
-                <li class="w3-padding-16">
-                    <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
-                    <span class="w3-large">Lorem</span><br>
-                    <span>Sed mattis nunc</span>
-                </li>
-                <li class="w3-padding-16">
-                    <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
-                    <span class="w3-large">Ipsum</span><br>
-                    <span>Praes tinci sed</span>
-                </li>
-            </ul>
-        </div>
-
         <div class="w3-third w3-serif">
             <h3>POPULAR TAGS</h3>
             <p>

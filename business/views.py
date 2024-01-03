@@ -6,6 +6,7 @@ from .forms import BusinessForm, AvailabilityForm, ReviewForm
 from .utils import searchBusiness
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Avg
 
 
 def is_business_owner(request, user_business):
@@ -74,10 +75,20 @@ def update_business(request):
 
 def business_detail(request, business_id):
     business = get_object_or_404(Business, id=business_id)
-    availability = business.availability
     reviews = business.review_set.all()
-    return render(request, 'business/business_detail.html', {'business': business, 'availability': availability, 'reviews': reviews})
 
+    # Calculate the average rating of the business
+    average_rating = reviews.aggregate(Avg('rating'))['rating__avg']
+
+    # Get availability information
+    availability = business.availability
+
+    return render(request, 'business/business_detail.html', {
+        'business': business,
+        'availability': availability,
+        'reviews': reviews,
+        'average_rating': average_rating,
+    })
 
 def business(request):
     business, search_query = searchBusiness(request)
@@ -86,6 +97,12 @@ def business(request):
                'search_query': search_query}
     return render(request, 'business/business.html', context)
 
+def home(request):
+    # Fetch all businesses
+    top_rated_places = Business.objects.all()  # Replace this with your actual query
+
+    context = {'top_rated_places': top_rated_places}
+    return render(request, 'business/home.html', context)
 
 def create_availability(request, business_id):
     business = get_object_or_404(Business, id=business_id)
@@ -122,7 +139,22 @@ def create_review(request, business_id):
     return render(request, 'business/create_review.html', {'form': form, 'business': business})
 
 
+def searchBusiness(request):
+    search_query = request.GET.get('search_query', '')
 
+    if search_query:
+        return redirect('search_results', search_query=search_query)
+
+    return render(request, 'empty_search_results.html')
+
+def search_results(request, search_query):
+    address = Business.objects.filter(address__icontains=search_query)
+    results = Business.objects.distinct().filter(
+        Q(business_name__icontains=search_query) |
+        Q(address__in=address)
+    )
+
+    return render(request, 'search_results.html', {'search_query': search_query, 'results': results})
 """
 def home(request):
     business = Business.objects.all()

@@ -1,71 +1,45 @@
 <!-- users/templates/users/login_register.html -->
 {% extends 'base.html' %}
 
-{% block title %}Your Login/Register Page Title{% endblock %}
+{% block title %}Your Login Page Title{% endblock %}
 
 {% block content %}
-  <div style="text-align: center; margin-top: 50px;">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <a href="{% url 'users:home' %}" style="text-decoration: none; color: black; font-size: 24px;">Locailable</a>
     <h1>{{ page|title }}</h1>
 
     <!-- Login Form -->
-   <form method="POST" action="{% url 'users:login' %}" id="loginForm" style="display: inline-block; text-align: left; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
-  {% csrf_token %}
-  <!-- Add your form fields here -->
-  <label for="id_username">Username:</label>
-  <input type="text" name="username" id="id_username" class="input-field" required>
-  <br>
-  <label for="id_password">Password:</label>
-  <input type="password" name="password" id="id_password" class="input-field" required>
-  <br>
-  <button type="submit" style="padding: 10px; margin: 10px auto; display: block;">Login</button>
-</form>
+    <form method="POST" action="{% url 'users:login' %}" id="loginForm" style="max-width: 300px; text-align: left; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: flex; flex-direction: column; align-items: center;">
+      {% csrf_token %}
+      <!-- Add your form fields here -->
+      <label for="id_username">Username:</label>
+      <input type="text" name="username" id="id_username" class="input-field" required>
+      <br>
+      <label for="id_password">Password:</label>
+      <input type="password" name="password" id="id_password" class="input-field" required>
+      <br>
+      <button type="submit" style="padding: 10px; margin-top: 20px; display: block;">Login</button>
+    </form>
 
-<p style="margin-top: 20px;">Don't have an account? <a href="#" onclick="showRegisterForm()">Sign Up</a></p>
+    <p style="margin-top: 20px;">Don't have an account? <a href="#" onclick="showRegisterForm()">Sign Up</a></p>
 
-<!-- Registration Form (Initially Hidden) -->
-<form method="POST" action="{% url 'users:user_signup' %}" id="registerForm" style="display: none; text-align: left; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
-  {% csrf_token %}
-  <!-- Add your registration form fields here -->
-  <label for="id_first_name">First Name:</label>
-  <input type="text" name="first_name" id="id_first_name" class="input-field" required>
-  <br>
-  <label for="id_last_name">Last Name:</label>
-  <input type="text" name="last_name" id="id_last_name" class="input-field" required>
-  <br>
-  <label for="id_email">Email:</label>
-  <input type="email" name="email" id="id_email" class="input-field" required>
-  <br>
-  <label for="id_username">Username:</label>
-  <input type="text" name="username" id="id_username" class="input-field" required>
-  <br>
-  <label for="id_password1">Password:</label>
-  <input type="password" name="password1" id="id_password1" class="input-field" required>
-  <br>
-  <label for="id_password2">Confirm Password:</label>
-  <input type="password" name="password2" id="id_password2" class="input-field" required>
-  <br>
-  <!-- Add other fields as needed -->
-  <button type="submit" style="padding: 10px; margin-top: 10px; display: block;">Register</button>
-</form>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // Check if the URL contains '/users/login/register/' and show the registration form accordingly
+        if (window.location.pathname === '/users/login/signup/') {
+          showRegisterForm();
+        }
+      });
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Check if the URL contains '/users/login/register/' and show the registration form accordingly
-  if (window.location.pathname === '/users/login/signup/') {
-    showRegisterForm();
-  }
-});
+      function showRegisterForm() {
+        window.location.href = '{% url 'users:user_signup' %}';  // Update the URL to redirect to the signup page
+      }
 
-function showRegisterForm() {
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("registerForm").style.display = "block";
-}
-
-// Redirect to the registration page when clicking the "Register" link in the login form
-document.querySelector('a[href="#"]').addEventListener('click', function(event) {
-  event.preventDefault();
-  window.location.href = '/users/signup/';  // Update the URL here
-});
-</script>
-
+      // Redirect to the home page when clicking the "Locailable" link
+      document.querySelector('a[href="{% url 'users:home' %}"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = '{% url 'users:home' %}';  // Update the URL here
+      });
+    </script>
+  </div>
 {% endblock %}

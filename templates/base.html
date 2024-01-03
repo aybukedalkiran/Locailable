@@ -1,49 +1,87 @@
-<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %}Your Project Title{% endblock %}</title>
+    <title>Locailable</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
-        /* Your custom styles go here */
-    </style>
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .content-container {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .form-container {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 50px;
+  }
+</style>
     {% load static %}
 </head>
 <body>
-
     <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-            <a href="{% url 'users:home' %}" class="w3-bar-item w3-button">LOCAILABLE</a>
-            <!-- Right-sided navbar links. Hide them on small screens -->
-            <div class="w3-right w3-hide-small">
-                <a href="{% url 'users:home' %}#top-rated-places" class="w3-bar-item w3-button">Places</a>
-                <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Sign up / Log in</a>
-                <!-- Remove the "Contact" link -->
-            </div>
-            <!-- Search Engine -->
-            <div class="search-container w3-hide-small">
-                <form action="/search" method="GET">
-                    <input type="text" placeholder="Search..." name="q">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
+   <div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="{% url 'users:home' %}" class="w3-bar-item w3-button">LOCAILABLE</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="{% url 'users:home' %}" class="w3-bar-item w3-button">Places</a>
+            <a href="{% url 'users:login' %}" class="w3-bar-item w3-button">Sign up / Log in</a>
+            <!-- Remove the "Contact" link -->
+        </div>
+        <!-- Search Engine -->
+        <div class="search-container w3-hide-small">
+            <form action="{% url 'search_business' %}" method="GET">
+                <input type="text" placeholder="Search..." name="q">
+                <button type="submit">Search</button>
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- Content section -->
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
 
     <!-- Footer -->
-    <footer>
-        <!-- Add your footer content here -->
+    <footer class="w3-row-padding w3-padding-32">
+        <div class="w3-third">
+            <h3>About Locailable</h3>
+            <p>Who We Are</p>
+            <p>Contact Us</p>
+        </div>
+        <div class="w3-third w3-serif">
+            <h3>POPULAR TAGS</h3>
+            <p>
+                <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Istanbul</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span
+                    class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
+            </p>
+        </div>
     </footer>
+    <script>
+        function scrollToTopRatedPlaces() {
+            var topRatedPlacesSection = document.getElementById("top-rated-places");
 
-    <!-- Add your additional script includes here -->
-
+            if (topRatedPlacesSection) {
+                // Scroll smoothly to the top-rated-places section
+                topRatedPlacesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 </body>
 </html>
