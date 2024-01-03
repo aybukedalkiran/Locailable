@@ -4,10 +4,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 #from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('business/', include('business.urls')),
     path('users/', include('users.urls')),
+    #path('users/', include('users.urls', namespace='users')),  # Include the users app URLs
     
 #    path('api/', include('api.urls')),
 #

@@ -30,6 +30,8 @@ class Profile(models.Model):
         except:
             url = ''
         return url
+    
+    USERNAME_FIELD = 'username'
 
 """
 class UserVote(models.Model):

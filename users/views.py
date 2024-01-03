@@ -11,7 +11,7 @@ from business.models import Review
 
 
 def home(request):
-    return render(request, 'home.html')  # home.html isminde bir şablon oluşturmanız gerekecek
+    return render(request, 'users/home.html')
 
 
 def user_signup(request):
@@ -21,7 +21,7 @@ def user_signup(request):
             user = form.save()
             messages.success(request, 'User account was created!')
             login(request, user)
-            return redirect('home')  # veya başka bir sayfaya yönlendirme yapabilirsiniz
+            return redirect('home')
     else:
         form = UserSignupForm()
     return render(request, 'users/user_signup.html', {'form': form})
@@ -42,7 +42,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('users:home')
         else:
             messages.error(request, 'Invalid username or password.')
 

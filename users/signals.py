@@ -1,15 +1,12 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-
 from django.contrib.auth.models import User
 from .models import Profile
-
 from django.core.mail import send_mail
 from django.conf import settings
 
-# @receiver(post_save, sender=Profile)
 
-
+@receiver(post_save, sender=Profile)
 def createProfile(sender, instance, created, **kwargs):
     if created:
         user = instance
@@ -17,7 +14,7 @@ def createProfile(sender, instance, created, **kwargs):
             user=user,
             username=user.username,
             email=user.email,
-            name=user.name,
+            name=user.profile.name if hasattr(user, 'profile') and user.profile else user.username,
         )
 
         subject = 'Welcome to Locailable'
@@ -54,3 +51,18 @@ def deleteUser(sender, instance, **kwargs):
 post_save.connect(createProfile, sender=User)
 post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)
+
+
+
+"""
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.profile.save()
+"""
