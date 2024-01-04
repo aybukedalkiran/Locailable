@@ -17,15 +17,15 @@ class CheckInOutConsumer(AsyncWebsocketConsumer):
         availability = await self.get_availability(business_id)
 
         if action == 'check_in':
-            availability.available_tables -= 1
+            availability.booked_tables += 1
         elif action == 'check_out':
-            availability.available_tables += 1
+            availability.booked_tables -= 1
 
         availability.save()
 
         await self.send(text_data=json.dumps({
             'action': action,
-            'availability': availability.available_tables,
+            'availability': availability.occupancy_ratio(),
         }))
 
     @sync_to_async
