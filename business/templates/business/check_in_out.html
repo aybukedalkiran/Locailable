@@ -2,28 +2,89 @@
 {% load static %}
 
 {% block content %}
-<button id="check-in">Check In</button>
-<button id="check-out">Check Out</button>
+<!-- business/check_in_out.html -->
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check In/Out</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 50px;
+        }
 
-<script>
-const ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
-const ws_path = `${ws_scheme}://${window.location.host}/ws/check_in_out/${business_id}/`;
-const socket = new WebSocket(ws_path);
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 80px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-socket.onmessage = function(e) {
-    const data = JSON.parse(e.data);
-    console.log(data);
-    // Update your UI with the received availability data
-};
+        h2 {
+            color: #333;
+        }
 
-document.getElementById('check-in').addEventListener('click', function() {
-    socket.send(JSON.stringify({'action': 'check_in', 'business_id': business_id}));
-});
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
 
-document.getElementById('check-out').addEventListener('click', function() {
-    socket.send(JSON.stringify({'action': 'check_out', 'business_id': business_id}));
-});
-</script>
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #availability {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Check In/Out</h2>
+        <p>Click the button below to check in or check out:</p>
+        <button id="check-in">Check In</button>
+        <button id="check-out">Check Out</button>
+        <p id="availability">Availability: <span id="availability-count">0</span></p>
+    </div>
+
+    <script>
+        const ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
+        const ws_path = `${ws_scheme}://${window.location.host}/ws/check_in_out/${business_id}/`;
+        const socket = new WebSocket(ws_path);
+
+        socket.onmessage = function (e) {
+            const data = JSON.parse(e.data);
+            console.log(data);
+            // Update the availability count in the UI
+            document.getElementById('availability-count').innerText = data.availability;
+        };
+
+        document.getElementById('check-in').addEventListener('click', function () {
+            socket.send(JSON.stringify({ 'action': 'check_in', 'business_id': business_id }));
+        });
+
+        document.getElementById('check-out').addEventListener('click', function () {
+            socket.send(JSON.stringify({ 'action': 'check_out', 'business_id': business_id }));
+        });
+    </script>
+</body>
+</html>
+
 
 {% endblock %}
